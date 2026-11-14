@@ -761,7 +761,7 @@ async function completeGame() {
   }, 1500);
 }
 
-} // پایان تابع completeGame
+// پایان تابع completeGame
 
 function checkAnswer() {
 
