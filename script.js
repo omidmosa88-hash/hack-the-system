@@ -310,7 +310,56 @@ function loadMission() {
   feedback.textContent = t("waiting");
   feedback.style.color = "#00ff72";
 }
+async function loadLeaderboard() {
+  const list = document.getElementById("leaderboard-list");
+  list.innerHTML = `<p style="color:#6d9c7c; text-align:center;">Loading...</p>`;
 
+  if (!supabaseClient) {
+    list.innerHTML = `<p style="color:#ff4444; text-align:center;">Supabase unavailable</p>`;
+    return;
+  }
+
+  try {
+    const { data, error } = await supabaseClient
+      .from("omid_soldiers")
+      .select("username, score, telegram_id")
+      .order("score", { ascending: false });
+
+    if (error) {
+      list.innerHTML = `<p style="color:#ff4444; text-align:center;">Error: ${error.message}</p>`;
+      return;
+    }
+
+    if (!data || data.length === 0) {
+      list.innerHTML = `<p style="color:#6d9c7c; text-align:center;">No records yet</p>`;
+      return;
+    }
+
+    list.innerHTML = data.map((player, index) => `
+      <div class="leaderboard-item">
+        <span class="rank">#${index + 1}</span>
+        <div class="info">
+          <span class="username">${player.username || "Anonymous"}</span>
+          <span class="telegram-id">ID: ${player.telegram_id}</span>
+        </div>
+        <span class="score">${player.score}</span>
+      </div>
+    `).join("");
+
+  } catch (err) {
+    list.innerHTML = `<p style="color:#ff4444; text-align:center;">Error loading leaderboard</p>`;
+    console.error(err);
+  }
+}
+
+function openLeaderboard() {
+  document.getElementById("leaderboard-screen").style.display = "flex";
+  loadLeaderboard();
+}
+
+function closeLeaderboard() {
+  document.getElementById("leaderboard-screen").style.display = "none";
+}
 function getHint() {
   if (solved || hintsUsed >= 3) return;
 
