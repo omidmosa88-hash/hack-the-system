@@ -671,7 +671,6 @@ async function completeGame() {
   updateRank();
 
   // SAVE SCORE TO SUPABASE
-  feedback.textContent = "USER: " + (telegramUser ? telegramUser.id : "NOT FOUND");
   if (!telegramUser) {
     feedback.textContent += " | Telegram user not found.";
     return;
