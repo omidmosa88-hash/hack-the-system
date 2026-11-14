@@ -2,11 +2,21 @@ alert("JAVASCRIPT IS WORKING");
 // SUPABASE CONNECTION
 const SUPABASE_URL = "https://twiglzobfxragspqfhtg.supabase.co";
 const SUPABASE_KEY = "sb_publishable_2U1DeaIiifzJl23Y3ShRzg_gAn5CCzV";
-alert("SCRIPT STARTED");
-const supabaseClient = window.supabase.createClient(
-  SUPABASE_URL,
-  SUPABASE_KEY
-);
+
+let supabaseClient = null;
+
+if (window.supabase && window.supabase.createClient) {
+  try {
+    supabaseClient = window.supabase.createClient(
+      SUPABASE_URL,
+      SUPABASE_KEY
+    );
+  } catch (error) {
+    console.error("SUPABASE INIT ERROR:", error);
+  }
+} else {
+  console.error("SUPABASE LIBRARY NOT LOADED");
+}
 // TELEGRAM USER
 const tg = window.Telegram?.WebApp;
 
