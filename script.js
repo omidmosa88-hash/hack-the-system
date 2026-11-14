@@ -775,6 +775,13 @@ answer.addEventListener("keydown", function(event) {
 
 // اصلاح دوم: همیشه ابتدا صفحه انتخاب زبان نمایش داده می‌شود.
 document.getElementById("language-screen").style.display = "flex";
+document.getElementById("lang-fa").addEventListener("click", function () {
+  chooseLanguage("fa");
+});
+
+document.getElementById("lang-en").addEventListener("click", function () {
+  chooseLanguage("en");
+});
 
 investigationRoom.style.display = "none";
 missionElement.style.display = "block";
