@@ -761,8 +761,6 @@ async function completeGame() {
   }, 1500);
 }
 
-// پایان تابع completeGame
-
 function checkAnswer() {
 
   if (currentMission === 4) return;
