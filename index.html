@@ -17,14 +17,16 @@
 
 <script>
   fetch("./script.js?v=2")
-    .then(response => {
-      alert("STATUS: " + response.status);
-      return response.text();
-    })
+    .then(response => response.text())
     .then(code => {
-      alert("FILE LENGTH: " + code.length);
+      try {
+        new Function(code);
+        alert("JAVASCRIPT SYNTAX OK");
+      } catch (error) {
+        alert("SYNTAX ERROR: " + error.message);
+      }
     })
-    .catch(error => alert("ERROR: " + error.message));
+    .catch(error => alert("FETCH ERROR: " + error.message));
 </script>
 </head>
 
