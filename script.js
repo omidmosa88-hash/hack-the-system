@@ -1,4 +1,9 @@
-alert("SCRIPT.JS LOADED");
+window.onerror = function(message, source, lineno, colno, error) {
+  alert(
+    "RUNTIME ERROR:\n" +
+    message + "\nLine: " + lineno
+  );
+};alert("SCRIPT.JS LOADED");
 // SUPABASE CONNECTION
 const SUPABASE_URL = "https://twiglzobfxragspqfhtg.supabase.co";
 const SUPABASE_KEY = "sb_publishable_2U1DeaIiifzJl23Y3ShRzg_gAn5CCzV";
