@@ -1,4 +1,11 @@
+// SUPABASE CONNECTION
+const SUPABASE_URL = "https://twiglzobfxragspqfhtg.supabase.co";
+const SUPABASE_KEY = "sb_publishable_2U1DeaIiifzJl23Y3ShRzg_gAn5CCzV";
 
+const supabaseClient = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
 const answer = document.getElementById("answer");
 const button = document.getElementById("submit");
 const feedback = document.getElementById("feedback");
