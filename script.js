@@ -681,9 +681,15 @@ async function completeGame() {
 
   updateRank();
 
+  
   // SAVE SCORE TO SUPABASE
   if (!telegramUser) {
     feedback.textContent += " | Telegram user not found.";
+    return;
+  }
+
+  if (!supabaseClient) {
+    feedback.textContent += " | Supabase unavailable.";
     return;
   }
 
@@ -702,15 +708,16 @@ async function completeGame() {
     );
 
   if (error) {
-  feedback.textContent += " | ERROR: " + error.message;
-  console.error("SUPABASE ERROR:", 
- } else {
-  feedback.textContent += " | Score submitted!";
-}
+    feedback.textContent += " | ERROR: " + error.message;
+    console.error("SUPABASE ERROR:", error);
+  } else {
+    feedback.textContent += " | Score submitted!";
+  }
 
 } // پایان تابع completeGame
- 
+
 function checkAnswer() {
+
   if (currentMission === 4) return;
 
   if (solved) {
