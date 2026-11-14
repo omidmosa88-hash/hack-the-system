@@ -761,7 +761,16 @@ async function completeGame() {
   } else {
     feedback.textContent += " | Score submitted!";
   }
+if (error) {
+  feedback.textContent += " | ERROR: " + error.message;
+  console.error("SUPABASE ERROR:", error);
+} else {
+  feedback.textContent += " | Score submitted!";
+}
 
+setTimeout(() => {
+  openLeaderboard();
+}, 1500);
 } // پایان تابع completeGame
 
 function checkAnswer() {
@@ -817,7 +826,8 @@ answer.addEventListener("keydown", function(event) {
     checkAnswer();
   }
 });
-
+document.getElementById("show-leaderboard").addEventListener("click", openLeaderboard);
+document.getElementById("close-leaderboard").addEventListener("click", closeLeaderboard);
 /* ============================= */
 /* START GAME */
 /* ============================= */
