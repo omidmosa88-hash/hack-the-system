@@ -728,48 +728,39 @@ async function completeGame() {
 
   updateRank();
 
-  
-  // SAVE SCORE TO SUPABASE
+    // SAVE SCORE TO SUPABASE
   if (!telegramUser) {
     feedback.textContent += " | Telegram user not found.";
-    return;
-  }
-
-  if (!supabaseClient) {
+  } else if (!supabaseClient) {
     feedback.textContent += " | Supabase unavailable.";
-    return;
-  }
-
-  const { error } = await supabaseClient
-    .from("omid_soldiers")
-    .upsert(
-      {
-        telegram_id: String(telegramUser.id),
-        username: telegramUser.username || "Anonymous",
-        score: totalScore
-      },
-      {
-        onConflict: "telegram_id",
-        ignoreDuplicates: true
-      }
-    );
-
-  if (error) {
-    feedback.textContent += " | ERROR: " + error.message;
-    console.error("SUPABASE ERROR:", error);
   } else {
-    feedback.textContent += " | Score submitted!";
+    const { error } = await supabaseClient
+      .from("omid_soldiers")
+      .upsert(
+        {
+          telegram_id: String(telegramUser.id),
+          username: telegramUser.username || "Anonymous",
+          score: totalScore
+        },
+        {
+          onConflict: "telegram_id",
+          ignoreDuplicates: true
+        }
+      );
+
+    if (error) {
+      feedback.textContent += " | ERROR: " + error.message;
+      console.error("SUPABASE ERROR:", error);
+    } else {
+      feedback.textContent += " | Score submitted!";
+    }
   }
-if (error) {
-  feedback.textContent += " | ERROR: " + error.message;
-  console.error("SUPABASE ERROR:", error);
-} else {
-  feedback.textContent += " | Score submitted!";
+
+  setTimeout(() => {
+    openLeaderboard();
+  }, 1500);
 }
 
-setTimeout(() => {
-  openLeaderboard();
-}, 1500);
 } // پایان تابع completeGame
 
 function checkAnswer() {
