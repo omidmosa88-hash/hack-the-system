@@ -703,11 +703,13 @@ async function completeGame() {
 
   if (error) {
   feedback.textContent += " | ERROR: " + error.message;
-  console.error("SUPABASE ERROR:", error);
-} else {
+  console.error("SUPABASE ERROR:", 
+ } else {
   feedback.textContent += " | Score submitted!";
 }
 
+} // پایان تابع completeGame
+ 
 function checkAnswer() {
   if (currentMission === 4) return;
 
