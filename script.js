@@ -1,5 +1,3 @@
-alert("SCRIPT STARTED");
-alert("SCRIPT.JS LOADED");
 // SUPABASE CONNECTION
 const SUPABASE_URL = "https://twiglzobfxragspqfhtg.supabase.co";
 const SUPABASE_KEY = "sb_publishable_2U1DeaIiifzJl23Y3ShRzg_gAn5CCzV";
