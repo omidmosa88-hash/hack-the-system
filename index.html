@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HACK THE SYSTEM</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <main class="game">
+
+    <div id="language-screen">
+      <div class="language-content">
+        <h1>HACK THE SYSTEM</h1>
+        <p>SELECT YOUR LANGUAGE</p>
+
+        <button onclick="chooseLanguage('fa')">🇮🇷 فارسی</button>
+        <button onclick="chooseLanguage('en')">🇬🇧 English</button>
+      </div>
+    </div>
+
+    <div class="top">
+      <span class="status">● SYSTEM ONLINE</span>
+      <span class="version">v1.0</span>
+    </div>
+
+    <div class="logo">HACK<span>_</span></div>
+    <h1>THE SYSTEM</h1>
+    <p class="subtitle">BREAK THE CODE. UNLOCK THE TRUTH.</p>
+
+    <div class="divider"></div>
+
+    <!-- ORIGINAL MISSION AREA -->
+    <div class="mission">
+      <span class="tag">MISSION 01</span>
+      <h2>Sequence Protocol</h2>
+
+      <p class="question">
+        The system has detected an unknown sequence.
+        Find the next number to gain access.
+      </p>
+
+      <div class="sequence">
+        <span>02</span>
+        <span>04</span>
+        <span>08</span>
+        <span>16</span>
+        <span class="unknown">??</span>
+      </div>
+
+      <label for="answer">ENTER ACCESS CODE</label>
+      <input id="answer" type="text" placeholder="Your answer..." autocomplete="off">
+      <button id="submit">EXECUTE</button>
+
+      <p id="feedback">WAITING FOR INPUT...</p>
+    </div>
+
+    <!-- INVESTIGATION ROOM -->
+    <div id="investigation-room" style="display: none;">
+
+      <div class="investigation-header">
+        <span class="tag">CASE 005</span>
+        <h2>THE LAST ACCESS</h2>
+        <p>INVESTIGATION ROOM</p>
+      </div>
+
+      <!-- NAVIGATION TABS -->
+      <div class="investigation-tabs">
+
+        <button class="case-tab active" data-tab="case">
+          CASE FILE
+        </button>
+
+        <button class="case-tab" data-tab="suspects">
+          SUSPECTS
+        </button>
+
+        <button class="case-tab" data-tab="evidence">
+          EVIDENCE
+        </button>
+
+        <button class="case-tab" data-tab="deduction">
+          DEDUCTION
+        </button>
+
+      </div>
+
+      <!-- TAB CONTENT -->
+
+      <div class="tab-content active" id="tab-case">
+        <h3>THE INCIDENT</h3>
+
+        <p>
+          At 00:15, a secret research facility was hacked.
+          Confidential information was stolen from the main server.
+        </p>
+
+        <p>
+          Four suspects had access to the building.
+          One of them is the intruder.
+        </p>
+
+        <p class="objective">
+          YOUR OBJECTIVE: IDENTIFY THE INTRUDER.
+        </p>
+      </div>
+
+      <div class="tab-content" id="tab-suspects">
+        <h3>SUSPECT PROFILES</h3>
+        <div id="suspect-list"></div>
+      </div>
+
+      <div class="tab-content" id="tab-evidence">
+        <h3>EVIDENCE FILES</h3>
+        <div id="evidence-list"></div>
+      </div>
+
+      <div class="tab-content" id="tab-deduction">
+        <h3>DEDUCTION BOARD</h3>
+        <div id="deduction-board"></div>
+      </div>
+
+    </div>
+    <!-- END INVESTIGATION ROOM -->
+
+    <!-- HINT SYSTEM -->
+    <div class="hint-box">
+      <div class="hint-title" id="hint-title">HINT SYSTEM</div>
+      <p id="hint-text">No hints unlocked yet.</p>
+      <button id="hint-button" class="hint-button">GET A HINT</button>
+    </div>
+
+    <p id="score">TOTAL SCORE: 0</p>
+
+    <div class="rank-box">
+      <span id="rank-label">HACKER RANK</span>
+      <strong id="rank">ROOKIE</strong>
+
+      <div class="progress-track">
+        <div id="progress-bar"></div>
+      </div>
+
+      <small id="progress-text">0 / 400 XP</small>
+    </div>
+
+    <div class="bottom">
+      <span>ENCRYPTED CONNECTION</span>
+      <span>© HACK THE SYSTEM</span>
+    </div>
+
+  </main>
+</body>
+</html>
+
