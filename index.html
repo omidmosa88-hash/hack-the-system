@@ -15,7 +15,17 @@
   alert("HTML SCRIPT WORKS");
 </script>
 
-<script src="./script.js?v=2"></script>
+<script>
+  fetch("./script.js?v=2")
+    .then(response => {
+      alert("STATUS: " + response.status);
+      return response.text();
+    })
+    .then(code => {
+      alert("FILE LENGTH: " + code.length);
+    })
+    .catch(error => alert("ERROR: " + error.message));
+</script>
 </head>
 
 <body>
