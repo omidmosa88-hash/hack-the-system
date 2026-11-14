@@ -2,7 +2,7 @@ alert("JAVASCRIPT IS WORKING");
 // SUPABASE CONNECTION
 const SUPABASE_URL = "https://twiglzobfxragspqfhtg.supabase.co";
 const SUPABASE_KEY = "sb_publishable_2U1DeaIiifzJl23Y3ShRzg_gAn5CCzV";
-
+alert("SCRIPT STARTED");
 const supabaseClient = window.supabase.createClient(
   SUPABASE_URL,
   SUPABASE_KEY
