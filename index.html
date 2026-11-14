@@ -20,8 +20,11 @@
     .then(response => response.text())
     .then(code => {
       try {
-        new Function(code);
-        alert("JAVASCRIPT SYNTAX OK");
+  new Function(code);
+  alert("JAVASCRIPT SYNTAX OK");
+} catch (error) {
+  alert(error.name + ": " + error.message + "\n" + error.stack);
+}
       } catch (error) {
         alert("SYNTAX ERROR: " + error.message);
       }
