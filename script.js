@@ -6,6 +6,15 @@ const supabaseClient = window.supabase.createClient(
   SUPABASE_URL,
   SUPABASE_KEY
 );
+// TELEGRAM USER
+const tg = window.Telegram?.WebApp;
+
+if (tg) {
+  tg.ready();
+  tg.expand();
+}
+
+const telegramUser = tg?.initDataUnsafe?.user || null;
 const answer = document.getElementById("answer");
 const button = document.getElementById("submit");
 const feedback = document.getElementById("feedback");
