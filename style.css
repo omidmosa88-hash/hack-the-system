@@ -370,3 +370,103 @@ button:disabled {
     padding: 11px 2px;
   }
 }
+
+
+/* ============================= */
+/* LEADERBOARD */
+/* ============================= */
+
+#leaderboard-screen {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  background: #050907;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.leaderboard-content {
+  width: 100%;
+  max-width: 450px;
+}
+
+.leaderboard-content h2 {
+  color: #00ff72;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 22px;
+  letter-spacing: 3px;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.leaderboard-subtitle {
+  color: #6d9c7c;
+  font-size: 11px;
+  text-align: center;
+  letter-spacing: 2px;
+  margin-bottom: 25px;
+}
+
+#leaderboard-list {
+  max-height: 55vh;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+.leaderboard-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  margin-bottom: 8px;
+  border: 1px solid #1b5834;
+  background: #09130e;
+  font-size: 13px;
+}
+
+.leaderboard-item .rank {
+  color: #00ff72;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  min-width: 30px;
+}
+
+.leaderboard-item .info {
+  flex: 1;
+  margin: 0 12px;
+}
+
+.leaderboard-item .username {
+  color: #d8ffe5;
+  display: block;
+}
+
+.leaderboard-item .telegram-id {
+  color: #6d9c7c;
+  font-size: 11px;
+  margin-top: 3px;
+}
+
+.leaderboard-item .score {
+  color: #00ff72;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+}
+
+.leaderboard-btn {
+  background: transparent !important;
+  color: #00ff72 !important;
+  border: 1px solid #00ff72 !important;
+  margin-top: 15px;
+  font-size: 12px !important;
+}
+
+#close-leaderboard {
+  background: #00ff72;
+  color: #031007;
+  border: none;
+  margin-top: 10px;
+}
