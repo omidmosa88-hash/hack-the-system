@@ -691,11 +691,10 @@ async function completeGame() {
     );
 
   if (error) {
-    feedback.textContent += " | Score saving failed.";
-    console.error(error);
-  } else {
-    feedback.textContent += " | Score submitted!";
-  }
+  feedback.textContent += " | ERROR: " + error.message;
+  console.error("SUPABASE ERROR:", error);
+} else {
+  feedback.textContent += " | Score submitted!";
 }
 
 function checkAnswer() {
