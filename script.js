@@ -1,8 +1,4 @@
-window.onerror = function(message, source, lineno, colno, error) {
-  alert(
-    "RUNTIME ERROR:\n" +
-    message + "\nLine: " + lineno
-  );
+alert("SCRIPT STARTED");
 };alert("SCRIPT.JS LOADED");
 // SUPABASE CONNECTION
 const SUPABASE_URL = "https://twiglzobfxragspqfhtg.supabase.co";
