@@ -651,7 +651,7 @@ function setupCaseSubmit() {
   });
 }
 
-function completeGame() {
+async function completeGame() {
   investigationRoom.style.display = "none";
   missionElement.style.display = "block";
 
@@ -669,11 +669,34 @@ function completeGame() {
   hintButton.disabled = true;
 
   updateRank();
-}
 
-/* ============================= */
-/* NORMAL MISSION ANSWERS */
-/* ============================= */
+  // SAVE SCORE TO SUPABASE
+  if (!telegramUser) {
+    feedback.textContent += " | Telegram user not found.";
+    return;
+  }
+
+  const { error } = await supabaseClient
+    .from("omid_soldiers")
+    .upsert(
+      {
+        telegram_id: String(telegramUser.id),
+        username: telegramUser.username || "Anonymous",
+        score: totalScore
+      },
+      {
+        onConflict: "telegram_id",
+        ignoreDuplicates: true
+      }
+    );
+
+  if (error) {
+    feedback.textContent += " | Score saving failed.";
+    console.error(error);
+  } else {
+    feedback.textContent += " | Score submitted!";
+  }
+}
 
 function checkAnswer() {
   if (currentMission === 4) return;
