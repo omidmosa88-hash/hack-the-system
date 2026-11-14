@@ -47,39 +47,18 @@ const missions = [
       en: "Find the next number in this sequence.",
       fa: "عدد بعدی این دنباله را پیدا کن."
     },
-    numbers: ["02", "04", "08", "16", "??"],
-    answer: "32",
+    numbers: ["03", "04", "08", "17", "33", "??"],
+    answer: "58",
     hints: {
       en: [
-        "Look carefully at how each number changes.",
-        "Each number is multiplied by the same value.",
-        "Multiply the last number by 2."
+        "Look at the relationship between consecutive numbers.",
+        "Try multiplying the previous number and then adjusting.",
+        "Each number is roughly double the previous one, with a small change."
       ],
       fa: [
-        "با دقت به تغییر هر عدد توجه کن.",
-        "هر عدد در یک مقدار ثابت ضرب می‌شود.",
-        "عدد آخر را در ۲ ضرب کن."
-      ]
-    }
-  },
-  {
-    title: { en: "Double Trouble", fa: "چالش دوبرابر" },
-    question: {
-      en: "Find the missing number.",
-      fa: "عدد گمشده را پیدا کن."
-    },
-    numbers: ["03", "06", "12", "24", "??"],
-    answer: "48",
-    hints: {
-      en: [
-        "The numbers follow a repeating mathematical rule.",
-        "Each number is twice the previous one.",
-        "Multiply 24 by 2."
-      ],
-      fa: [
-        "اعداد از یک قانون ریاضی مشخص پیروی می‌کنند.",
-        "هر عدد دو برابر عدد قبلی است.",
-        "عدد ۲۴ را در ۲ ضرب کن."
+        "به رابطه بین اعداد پشت سر هم دقت کن.",
+        "سعی کن عدد قبلی را ضرب کنی و کمی تغییرش بدهی.",
+        "هر عدد تقریباً دو برابر عدد قبلی است با یک تغییر کوچک."
       ]
     }
   },
@@ -105,6 +84,27 @@ const missions = [
     }
   },
   {
+    title: { en: "Deep Sequence", fa: "دنباله عمیق" },
+    question: {
+      en: "Find the next number in this sequence.",
+      fa: "عدد بعدی این دنباله را پیدا کن."
+    },
+    numbers: ["03", "05", "11", "29", "83", "??"],
+    answer: "245",
+    hints: {
+      en: [
+        "Each number is generated from the previous one using multiplication and subtraction.",
+        "Try multiplying by 3 and then subtracting a fixed number.",
+        "Previous × 3 - 4"
+      ],
+      fa: [
+        "هر عدد از روی عدد قبلی با ضرب و کم کردن ساخته شده.",
+        "سعی کن در ۳ ضرب کنی و بعد یک عدد ثابت کم کنی.",
+        "عدد قبلی × ۳ منهای ۴"
+      ]
+    }
+  },
+  {
     title: { en: "The Lost Country", fa: "کشور گمشده" },
     question: {
       en: "Decrypt the message and discover the hidden country.",
@@ -121,7 +121,7 @@ const missions = [
       fa: [
         "این پیام با حروف الفبای انگلیسی رمزگذاری شده است.",
         "پیام مخفی، نام یک کشور در خاورمیانه است.",
-        "هر چهار حرف را سه جایگاه به عقب برگردان. مثلاً L به I تبدیل می‌شود."
+        "هر حرف را سه جایگاه به عقب برگردان. مثلاً L به I تبدیل می‌شود."
       ]
     }
   },
@@ -143,7 +143,6 @@ const missions = [
     }
   }
 ];
-
 const translations = {
   en: {
     select: "SELECT YOUR LANGUAGE",
